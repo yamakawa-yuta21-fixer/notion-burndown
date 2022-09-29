@@ -128,7 +128,7 @@ const countPointsLeftInSprint = async (
   const sprintStories = response.results;
   const ongoingStories = sprintStories.filter(
     (item) =>
-      !new RegExp(statusExclude).test(item.properties.Status.select.name)
+      !new RegExp(statusExclude).test(item.properties.Status.options.name)
   );
   return ongoingStories.reduce((accum, item) => {
     if (item.properties[estimateProp]) {
