@@ -16016,10 +16016,11 @@ const countPointsLeftInSprint = async (
     },
   });
   const sprintStories = response.results;
-  console.log(item.properties.Status.options)
   const ongoingStories = sprintStories.filter(
-    (item) =>
+    (item) => {
+      console.log(item.properties.Status.options )
       !new RegExp(statusExclude).test(item.properties.Status.options.name)
+    }
   );
   return ongoingStories.reduce((accum, item) => {
     if (item.properties[estimateProp]) {
